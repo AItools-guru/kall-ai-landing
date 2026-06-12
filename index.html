@@ -19,7 +19,7 @@
             --card-bg: rgba(15, 23, 42, 0.55);
             --border-color: rgba(255, 255, 255, 0.08);
             --primary-grad: linear-gradient(135deg, #f97316 0%, #6366f1 100%);
-            --glow-grad: linear-gradient(90deg, #fdba74, #f97316, #818cf8);
+            --glow-grad: linear-gradient(90deg, #0284c7, #0ea5e9, #22d3ee);
             --text-primary: #f8fafc;
             --text-secondary: #cbd5e1;
             --text-muted: #94a3b8;
@@ -1627,6 +1627,193 @@
                 min-width: 180px;
             }
         }
+
+        /* Dynamic Radar Scanner */
+        .radar-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 60px auto 40px auto;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(6, 182, 212, 0.4);
+            box-shadow: 0 0 50px rgba(6, 182, 212, 0.15), inset 0 0 40px rgba(139, 92, 246, 0.1);
+            overflow: hidden;
+            cursor: crosshair;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .radar-container:hover {
+            box-shadow: 0 0 80px rgba(6, 182, 212, 0.4), inset 0 0 60px rgba(139, 92, 246, 0.3);
+            border-color: rgba(6, 182, 212, 0.8);
+        }
+
+        .radar-grid {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background-image: 
+                linear-gradient(rgba(6, 182, 212, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(6, 182, 212, 0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+            border: 2px solid rgba(6, 182, 212, 0.6);
+        }
+        .radar-grid::before, .radar-grid::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px dashed rgba(6, 182, 212, 0.4);
+        }
+        .radar-grid::before { width: 160px; height: 160px; }
+        .radar-grid::after { width: 240px; height: 240px; }
+
+        .radar-sweep {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 1));
+            transform-origin: 0 50%;
+            animation: sweep 4s infinite linear;
+            box-shadow: 0 0 15px rgba(6, 182, 212, 0.8);
+            z-index: 2;
+        }
+        .radar-sweep::after {
+            content: '';
+            position: absolute;
+            top: -80px; left: 0;
+            width: 160px; height: 160px;
+            background: conic-gradient(from 270deg, transparent 75%, rgba(6, 182, 212, 0.4) 100%);
+            transform-origin: 0 80px;
+        }
+        .radar-container:hover .radar-sweep {
+            animation-duration: 1.2s;
+        }
+
+        @keyframes sweep {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .radar-core {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px; height: 70px;
+            background: rgba(15, 23, 42, 0.95);
+            border: 2px solid #22d3ee;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            box-shadow: 0 0 20px #22d3ee;
+            z-index: 10;
+        }
+
+        .radar-wave {
+            width: 4px;
+            background: #a855f7;
+            border-radius: 2px;
+            animation: wave-bounce 1.2s infinite ease-in-out;
+        }
+        .radar-wave:nth-child(1) { height: 12px; animation-delay: 0.1s; }
+        .radar-wave:nth-child(2) { height: 24px; animation-delay: 0.2s; }
+        .radar-wave:nth-child(3) { height: 36px; animation-delay: 0.3s; }
+        .radar-wave:nth-child(4) { height: 24px; animation-delay: 0.4s; }
+        .radar-wave:nth-child(5) { height: 12px; animation-delay: 0.5s; }
+
+        .radar-container:hover .radar-wave {
+            animation-duration: 0.5s;
+            background: #22d3ee;
+        }
+
+        @keyframes wave-bounce {
+            0%, 100% { transform: scaleY(0.4); opacity: 0.6; }
+            50% { transform: scaleY(1.3); opacity: 1; box-shadow: 0 0 10px currentColor; }
+        }
+
+        .radar-chip {
+            position: absolute;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            z-index: 5;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            border: 1px solid;
+            animation: float-up 5s infinite;
+        }
+        
+        .chip-bug {
+            color: #ef4444; border-color: rgba(239, 68, 68, 0.4);
+            top: 60%; left: 5%; animation-delay: 0s;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.2);
+        }
+        .chip-task {
+            color: #a855f7; border-color: rgba(168, 85, 247, 0.4);
+            top: 50%; left: 55%; animation-delay: 1.6s;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2);
+        }
+        .chip-insight {
+            color: #22d3ee; border-color: rgba(34, 211, 238, 0.4);
+            top: 75%; left: 30%; animation-delay: 3.2s;
+            box-shadow: 0 0 15px rgba(34, 211, 238, 0.2);
+        }
+
+        @keyframes float-up {
+            0% { transform: translateY(0) scale(0.8); opacity: 0; }
+            20% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+            80% { transform: translateY(-60px) scale(1); opacity: 1; }
+            100% { transform: translateY(-80px) scale(0.8); opacity: 0; }
+        }
+
+        .radar-ping {
+            position: absolute;
+            width: 8px; height: 8px;
+            background: #22d3ee;
+            border-radius: 50%;
+            opacity: 0;
+            z-index: 3;
+        }
+        .ping-1 { top: 35%; left: 25%; animation: ping-flash 4s infinite 1s; }
+        .ping-2 { top: 65%; left: 75%; animation: ping-flash 4s infinite 2.5s; }
+        .ping-3 { top: 25%; left: 65%; animation: ping-flash 4s infinite 3.8s; }
+
+        @keyframes ping-flash {
+            0% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.8); }
+            5% { opacity: 1; transform: scale(2); box-shadow: 0 0 15px 6px rgba(34, 211, 238, 0.5); }
+            15% { opacity: 0; transform: scale(1); box-shadow: 0 0 0 0 rgba(34, 211, 238, 0); }
+            100% { opacity: 0; }
+        }
+
+        .radar-tooltip {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Fira Code', monospace;
+            font-size: 0.8rem;
+            color: #22d3ee;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            background: rgba(15, 23, 42, 0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            pointer-events: none;
+        }
+        .radar-container:hover .radar-tooltip {
+            opacity: 1;
+        }
     </style>
     <!-- Firebase SDK (v10.8.0 Compatibility Mode) -->
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
@@ -1684,12 +1871,12 @@
                     </div>
                     
                     <h1>
-                        Multi-Modal Meetings,<br>
-                        <span class="gradient-text">end to end.</span>
+                        Meeting Transcripts,<br>
+                        <span class="gradient-text">turned into tickets.</span>
                     </h1>
                     
                     <p class="lead">
-                        Upload meeting audio directly or scan whiteboard brainstorm sessions. Kall AI structures unstructured transcripts into Pydantic-validated agile backlogs. Fully private.
+                        Drop your raw transcripts. Kall AI automatically extracts agile backlogs, blockers, and operational insights in seconds.
                     </p>
                     
                     <div class="hero-ctas">
@@ -1700,55 +1887,31 @@
                     <div class="hero-subtext">No credit card required • 100% Private (No DB Storage)</div>
                     
                     <div class="trust-badge-line" style="margin-top: 25px; font-size: 0.85rem; color: #64748b; font-family: 'Outfit', sans-serif; text-align: center;">
-                        🔒 Built by ex-Google PM &bull; Used internally by 3 product teams &bull; Zero data used for AI training
+                        🔒 Built for Agile Teams &bull; Strict Pydantic Validation &bull; Zero data used for AI training
                     </div>
 
-                    <!-- Notee-style Live Recording Dashboard Player -->
-                    <div class="mockup-container">
-                        <div class="mockup-glow"></div>
-                        <div class="dashboard-mockup">
-                            <div class="mock-rec-row">
-                                <div class="mock-rec-indicator">Recording</div>
-                                <div class="mock-wave">
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                    <div class="mock-wave-bar"></div>
-                                </div>
-                                <div class="mock-rec-timer">05:00</div>
-                            </div>
-                            
-                            <!-- Summary Skeleton -->
-                            <div class="mock-section-label">⚡ SUMMARY</div>
-                            <div class="mock-summary-skeleton">
-                                <div class="mock-skeleton-line"></div>
-                                <div class="mock-skeleton-line short"></div>
-                                <div class="mock-skeleton-line shorter"></div>
-                            </div>
-                            
-                            <!-- Clickable Mock Backlog items -->
-                            <div class="mock-section-label">📋 ACTION ITEMS</div>
-                            
-                            <div class="mock-backlog-item completed" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Send the revised proposal to Sarah</span>
-                            </div>
-                            
-                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Book a follow-up for next Tuesday</span>
-                            </div>
-                            
-                            <div class="mock-backlog-item" onclick="toggleMockBacklog(this)">
-                                <div class="mock-checkbox"></div>
-                                <span class="mock-text">Share the Q3 numbers with the team</span>
-                            </div>
+                    <!-- Dynamic Radar Scanner Component -->
+                    <div class="radar-container" title="Analyzing Transcript...">
+                        <div class="radar-grid"></div>
+                        <div class="radar-sweep"></div>
+                        
+                        <div class="radar-ping ping-1"></div>
+                        <div class="radar-ping ping-2"></div>
+                        <div class="radar-ping ping-3"></div>
+
+                        <div class="radar-core">
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
+                            <div class="radar-wave"></div>
                         </div>
+
+                        <div class="radar-chip chip-bug">[BUG] Login Failure</div>
+                        <div class="radar-chip chip-task">[TASK] Q3 Roadmap</div>
+                        <div class="radar-chip chip-insight">[INSIGHT] User Drop-off</div>
+                        
+                        <div class="radar-tooltip">⚡ Processing 45m Standup...</div>
                     </div>
 
                     <!-- Divider Section Header for App Showcase -->
@@ -1779,13 +1942,13 @@
                             </div>
                             <div class="browser-content">
                                 <div class="browser-slide active">
-                                    <img src="assets/home.png?v=3" alt="Operations Uploader">
+                                    <img src="assets/home.png" alt="Operations Uploader">
                                 </div>
                                 <div class="browser-slide">
-                                    <img src="assets/sprint_standup.png?v=3" alt="Sprint Standup Cockpit">
+                                    <img src="assets/sprint_standup.png" alt="Sprint Standup Cockpit">
                                 </div>
                                 <div class="browser-slide">
-                                    <img src="assets/project_retro.png?v=3" alt="Project Retro Dashboard">
+                                    <img src="assets/project_retro.png" alt="Project Retro Dashboard">
                                 </div>
                             </div>
                         </div>
