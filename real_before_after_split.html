@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kall AI Before After Real Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0e1117;
+            --sidebar-color: #262730;
+            --text-color: #fafafa;
+            --muted-text: #808495;
+            --border-color: rgba(250, 250, 250, 0.2);
+            --primary-accent: #ff4b4b; /* Streamlit Red button color */
+            --input-bg: #262730;
+        }
+
+        body {
+            background-color: #05070a;
+            color: var(--text-color);
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .split-card {
+            width: 1200px;
+            height: 650px;
+            background: var(--bg-color);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .split-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 2px;
+            background: rgba(255,255,255,0.1);
+            z-index: 10;
+        }
+
+        .panel {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            height: 100%;
+        }
+
+        .label-header {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .yesterday-label {
+            color: #ef4444;
+        }
+
+        .today-label {
+            color: #10b981;
+        }
+
+        .app-preview {
+            background: #0e1117;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        /* Streamlit Text Area Widget */
+        .st-text-area {
+            border: 1px solid var(--border-color);
+            background: #0e1117;
+            border-radius: 4px;
+            padding: 12px;
+            height: 140px;
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--muted-text);
+            position: relative;
+            cursor: text;
+        }
+
+        .st-text-area::after {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 170px;
+            width: 2px;
+            height: 15px;
+            background: #ff4b4b;
+            animation: blink 1s infinite;
+        }
+
+        /* Streamlit File Uploader Widget */
+        .st-file-uploader {
+            border: 1px dashed var(--border-color);
+            background: #131720;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: border-color 0.2s;
+        }
+
+        .st-file-uploader:hover {
+            border-color: #ff4b4b;
+        }
+
+        .upload-icon {
+            color: var(--muted-text);
+            font-size: 32px;
+        }
+
+        .upload-btn {
+            background-color: #0e1117;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .upload-text {
+            font-size: 13px;
+            color: var(--muted-text);
+        }
+
+        .active-file-pill {
+            background: rgba(255, 75, 75, 0.1);
+            border: 1px solid rgba(255, 75, 75, 0.3);
+            border-radius: 4px;
+            padding: 8px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .primary-btn {
+            background-color: var(--primary-accent);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.25);
+            margin-top: auto;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-card">
+        
+        <!-- LEFT PANEL: Yesterday -->
+        <div class="panel">
+            <div class="label-header yesterday-label">YESTERDAY</div>
+            <div class="app-preview">
+                <div style="font-size: 16px; font-weight: 700;">Edit Inputs & Settings</div>
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;"></div>
+                
+                <div>
+                    <div class="widget-title">Paste call transcript here:</div>
+                    <div class="st-text-area">
+                        Paste text here...
+                    </div>
+                </div>
+
+                <button class="primary-btn" style="background-color: #3b3d4a; cursor: not-allowed; opacity: 0.7;">
+                    🚀 Extract Operational Insights
+                </button>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: Today -->
+        <div class="panel">
+            <div class="label-header today-label">TODAY</div>
+            <div class="app-preview">
+                <div style="font-size: 16px; font-weight: 700;">Edit Inputs & Settings</div>
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;"></div>
+                
+                <div>
+                    <div class="widget-title">Upload Zoom/Teams transcript (.txt, .srt, .vtt, .pdf)</div>
+                    <div class="st-file-uploader">
+                        <div class="upload-icon">📁</div>
+                        <button class="upload-btn">Browse files</button>
+                        <div class="upload-text">Drag and drop file here</div>
+                        <div class="upload-text" style="font-size: 11px; margin-top:-4px;">Limit 200MB per file • PDF, TXT, SRT, VTT</div>
+                    </div>
+                    
+                    <div class="active-file-pill">
+                        <span>📄 Teams_Meeting_Transcript.pdf</span>
+                        <span style="color:#ff4b4b; cursor:pointer;">❌</span>
+                    </div>
+                </div>
+
+                <button class="primary-btn">
+                    🚀 Extract Operational Insights
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
