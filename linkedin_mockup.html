@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kall AI LinkedIn Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0B0E17;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --accent-indigo: #6366f1;
+            --accent-rose: #f43f5e;
+            --accent-emerald: #10b981;
+            --accent-amber: #f59e0b;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(99, 102, 241, 0.08), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(244, 63, 94, 0.08), transparent 25%);
+        }
+
+        .mockup-container {
+            width: 1200px;
+            height: 750px;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr 1fr;
+            gap: 24px;
+            box-sizing: border-box;
+        }
+
+        .header {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 20px;
+        }
+
+        .header-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-meta {
+            color: var(--text-secondary);
+            font-size: 14px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .meta-tag {
+            background: rgba(255,255,255,0.05);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-header {
+            font-family: 'Outfit', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Executive Brief */
+        .risk-item {
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            border-left: 4px solid var(--accent-rose);
+            padding: 16px;
+            border-radius: 8px;
+        }
+        
+        .risk-title {
+            color: var(--accent-rose);
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .risk-desc {
+            color: var(--text-secondary);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Agile Planner */
+        .ticket-stat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent-emerald);
+        }
+
+        .ticket-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .ticket {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255,255,255,0.02);
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+        }
+
+        .ticket-badge {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-emerald);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+        }
+
+        /* Speaker Analytics */
+        .speaker-bar {
+            width: 100%;
+            height: 24px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 16px;
+        }
+
+        .bar-segment-1 { width: 61%; background: var(--accent-indigo); }
+        .bar-segment-2 { width: 25%; background: var(--accent-amber); }
+        .bar-segment-3 { width: 14%; background: var(--accent-emerald); }
+
+        .speaker-insights {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: auto;
+        }
+
+        .insight-pill {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--accent-amber);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Copilot */
+        .chat-bubble-q {
+            background: rgba(255,255,255,0.05);
+            padding: 16px;
+            border-radius: 12px 12px 12px 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            width: 85%;
+        }
+
+        .chat-bubble-a {
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 16px;
+            border-radius: 12px 12px 4px 12px;
+            font-size: 14px;
+            color: var(--text-primary);
+            line-height: 1.5;
+            width: 85%;
+            align-self: flex-end;
+            position: relative;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: flex-end;
+        }
+
+        .timestamp {
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mockup-container">
+        <div class="header">
+            <div class="header-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                Kall AI Processing Summary
+            </div>
+            <div class="header-meta">
+                <div class="meta-tag">⏱️ 50m Transcript</div>
+                <div class="meta-tag">⚡ Processed in 84s</div>
+            </div>
+        </div>
+
+        <!-- Agile Planner -->
+        <div class="card" style="grid-row: 2; grid-column: 1;">
+            <div class="card-header"><span style="color:var(--accent-emerald)">📋</span> Agile Action Planner</div>
+            <div class="ticket-stat">
+                <span style="color: var(--text-secondary); font-size: 15px;">Sprint-Ready Tickets Generated</span>
+                <span class="stat-value">8</span>
+            </div>
+            <div class="ticket-list">
+                <div class="ticket">
+                    <span>Migrate Auth to Firebase</span>
+                    <span class="ticket-badge">8 Points</span>
+                </div>
+                <div class="ticket">
+                    <span>Update Vendor API Endpoints</span>
+                    <span class="ticket-badge">5 Points</span>
+                </div>
+                <div class="ticket">
+                    <span>Resolve DB Timeout Bug</span>
+                    <span class="ticket-badge">3 Points</span>
+                </div>
+                <div style="text-align:center; color: var(--text-secondary); font-size: 12px; margin-top: 4px;">+ 5 more tickets assigned</div>
+            </div>
+        </div>
+
+        <!-- Executive Brief -->
+        <div class="card" style="grid-row: 3; grid-column: 1;">
+            <div class="card-header"><span style="color:var(--accent-rose)">📊</span> Executive Brief (Hidden Risks)</div>
+            <div style="color: var(--text-secondary); font-size: 14px; margin-bottom: 8px;">3 Implicit risks identified by semantic engine:</div>
+            
+            <div class="risk-item">
+                <div class="risk-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <span>⚠️ Scope Creep Detected</span>
+                    <span style="background: rgba(244, 63, 94, 0.25); color: #ff4d6d; padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 700; border: 1px solid rgba(244, 63, 94, 0.4); text-transform: uppercase; letter-spacing: 0.5px;">$200K Risk</span>
+                </div>
+                <div class="risk-desc">Marcus agreed to add "custom reporting" for the enterprise client without confirming engineering bandwidth. This puts the Q3 delivery timeline at severe risk.</div>
+            </div>
+        </div>
+
+        <!-- Speaker Analytics -->
+        <div class="card" style="grid-row: 2; grid-column: 2;">
+            <div class="card-header"><span style="color:var(--accent-amber)">🎙️</span> Speaker Analytics</div>
+            <div class="speaker-bar">
+                <div class="bar-segment-1"></div>
+                <div class="bar-segment-2"></div>
+                <div class="bar-segment-3"></div>
+            </div>
+            <div style="display:flex; justify-content:space-between; font-size:12px; color:var(--text-secondary)">
+                <span>Speaker 1 (61%)</span>
+                <span>Speaker 2 (25%)</span>
+                <span>Others (14%)</span>
+            </div>
+            
+            <div class="speaker-insights">
+                <div class="insight-pill">
+                    🛑 3 participants said nothing in the last 25 minutes.
+                </div>
+                <div class="insight-pill" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.2); color: var(--accent-emerald);">
+                    💡 The quietest person (Speaker 4) raised the only actionable blocker at [42:15].
+                </div>
+            </div>
+        </div>
+
+        <!-- PM Copilot -->
+        <div class="card" style="grid-row: 3; grid-column: 2;">
+            <div class="card-header"><span style="color:var(--accent-indigo)">🤖</span> Ask PM Copilot</div>
+            <div class="chat-container">
+                <div class="chat-bubble-q">
+                    "What did we actually decide about the vendor shortlist?"
+                </div>
+                <div class="chat-bubble-a">
+                    We decided to eliminate Vendor B due to SOC2 compliance issues, and will move forward with a 14-day trial of Vendor A starting next Tuesday.
+                    <div class="timestamp">[Reference: 38:42]</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
