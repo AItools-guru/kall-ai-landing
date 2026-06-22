@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kall AI Before After Real Mockup</title>
+    <title>Kall AI Before After Real Mockup (1200x627)</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -21,24 +21,24 @@
             color: var(--text-color);
             font-family: 'Source Sans Pro', sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            width: 1200px;
+            height: 627px;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            overflow: hidden;
         }
 
         .split-card {
             width: 1200px;
-            height: 650px;
+            height: 627px;
             background: var(--bg-color);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: 12px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             position: relative;
+            box-sizing: border-box;
         }
 
         .split-card::before {
@@ -53,18 +53,19 @@
         }
 
         .panel {
-            padding: 40px;
+            padding: 35px 40px;
             display: flex;
             flex-direction: column;
             box-sizing: border-box;
             height: 100%;
+            justify-content: space-between;
         }
 
         .label-header {
             font-size: 24px;
             font-weight: 700;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
             text-align: center;
             font-family: 'Source Sans Pro', sans-serif;
         }
@@ -87,37 +88,41 @@
             flex-direction: column;
             gap: 16px;
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+            box-sizing: border-box;
+            height: calc(100% - 60px);
         }
 
         .widget-title {
             font-size: 14px;
             font-weight: 600;
             color: var(--text-color);
-            margin-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         /* Streamlit Text Area Widget */
         .st-text-area {
-            border: 1px solid var(--border-color);
-            background: #0e1117;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #111524; /* Streamlit dark input blue-grey */
             border-radius: 4px;
             padding: 12px;
             height: 140px;
-            font-family: monospace;
-            font-size: 13px;
-            color: var(--muted-text);
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+            color: #64748b; /* Muted placeholder text */
             position: relative;
             cursor: text;
+            box-sizing: border-box;
         }
 
-        .st-text-area::after {
+        /* Cursor line indicator */
+        .st-text-area::before {
             content: '';
             position: absolute;
             top: 12px;
-            left: 170px;
-            width: 2px;
-            height: 15px;
-            background: #ff4b4b;
+            left: 10px;
+            width: 1.5px;
+            height: 16px;
+            background: #fafafa;
             animation: blink 1s infinite;
         }
 
@@ -126,15 +131,16 @@
             border: 1px dashed var(--border-color);
             background: #131720;
             border-radius: 8px;
-            padding: 30px 20px;
+            padding: 25px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 10px;
             cursor: pointer;
             transition: border-color 0.2s;
+            box-sizing: border-box;
         }
 
         .st-file-uploader:hover {
@@ -143,7 +149,7 @@
 
         .upload-icon {
             color: var(--muted-text);
-            font-size: 32px;
+            font-size: 28px;
         }
 
         .upload-btn {
@@ -186,6 +192,7 @@
             text-align: center;
             box-shadow: 0 2px 4px rgba(0,0,0,0.25);
             margin-top: auto;
+            box-sizing: border-box;
         }
 
         @keyframes blink {
@@ -202,12 +209,12 @@
             <div class="label-header yesterday-label">YESTERDAY</div>
             <div class="app-preview">
                 <div style="font-size: 16px; font-weight: 700;">Edit Inputs & Settings</div>
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;"></div>
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px;"></div>
                 
                 <div>
-                    <div class="widget-title">Paste call transcript here:</div>
+                    <div class="widget-title">Transcript Raw Content:</div>
                     <div class="st-text-area">
-                        Paste text here...
+                        &nbsp;&nbsp;Paste a meeting transcript here, or click the button above to load the demo...
                     </div>
                 </div>
 
@@ -222,7 +229,7 @@
             <div class="label-header today-label">TODAY</div>
             <div class="app-preview">
                 <div style="font-size: 16px; font-weight: 700;">Edit Inputs & Settings</div>
-                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 10px;"></div>
+                <div style="border-bottom: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px;"></div>
                 
                 <div>
                     <div class="widget-title">Upload Zoom/Teams transcript (.txt, .srt, .vtt, .pdf)</div>
