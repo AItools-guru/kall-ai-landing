@@ -1846,6 +1846,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <!-- Cloudflare Turnstile Security Widget Script -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -2470,8 +2472,11 @@
 
                         <label class="checkbox-row" id="terms-checkbox-row">
                             <input type="checkbox" required checked>
-                            <span>I agree to the Terms of Service and Privacy Policy</span>
+                            <span>I agree to the <a href="#" style="color: #6366f1; text-decoration: underline;">Terms of Service</a> and <a href="#" style="color: #6366f1; text-decoration: underline;">Privacy Policy</a></span>
                         </label>
+
+                        <!-- Cloudflare Turnstile Verification Widget -->
+                        <div class="cf-turnstile" data-sitekey="0x4AAAAAAADo6I3Py_xrGrM9s" data-theme="dark" style="margin: 15px 0; display: flex; justify-content: center;"></div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px 0; font-family:'Outfit', sans-serif; font-size: 0.95rem;" id="submit-auth-btn">
                             Create Account
