@@ -1,0 +1,16 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Backups and temporary files
+kall-ai-backup/
+existing-screenshots/
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# Mockup HTML pages that shouldn't be pushed to production
+linkedin_mockup.html
+linkedin_mockup_split.html
+real_before_after_split.html
