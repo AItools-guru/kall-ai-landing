@@ -1,0 +1,5 @@
+# Robots.txt for Kall AI
+User-agent: *
+Allow: /
+
+Sitemap: https://kall-ai.com/sitemap.xml
