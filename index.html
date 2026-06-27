@@ -2197,59 +2197,6 @@
                 </div>
             </section>
 
-            <!-- 🏷️ ACCESS PLANS / PRICING SECTION -->
-            <section class="pricing-section">
-                <div class="container">
-                    <div class="section-header">
-                        <span>ACCESS TIERS</span>
-                        <h2>Ready to Supercharge Your Workflows?</h2>
-                    </div>
-
-                    <div class="pricing-grid">
-                        <!-- Card 1 -->
-                        <div class="glass-card pricing-card">
-                            <h3>Free Sandbox</h3>
-                            <div class="pricing-price">Free <span>/ Sandbox</span></div>
-                            <p class="pricing-desc">Perfect for testing the interface with mock data before plugging your key.</p>
-                            <ul class="pricing-features">
-                                <li>No API keys required</li>
-                                <li>Preloaded Sprint Alignment transcripts</li>
-                                <li>Pydantic JSON parser demo</li>
-                                <li>Full PDF &amp; Markdown exports</li>
-                            </ul>
-                            <button onclick="switchTab('login')" class="btn btn-outline">Launch Sandbox</button>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="glass-card pricing-card popular">
-                            <h3>Solo PM / Creator</h3>
-                            <div class="pricing-price">BYOK <span>/ Bring Your Own Key</span></div>
-                            <p class="pricing-desc">Bring your developer key for Claude or Gemini. Zero platform subscription fees.</p>
-                            <ul class="pricing-features">
-                                <li>Secure Local Browser Keychain</li>
-                                <li>One-Click Jira Cloud Sync Integration</li>
-                                <li>Unlimited Audio &amp; Transcript Uploads</li>
-                                <li>Full Speaker Analytics &amp; PM Copilot</li>
-                            </ul>
-                            <button onclick="switchTab('login')" class="btn btn-primary">Start free</button>
-                        </div>
-
-                        <!-- Card 3 -->
-                        <div class="glass-card pricing-card">
-                            <h3>Secure Enterprise</h3>
-                            <div class="pricing-price">Custom <span>/ Dedicated</span></div>
-                            <p class="pricing-desc">Dedicated host server deployments for teams requiring corporate compliance.</p>
-                            <ul class="pricing-features">
-                                <li>Dedicated private cloud hosting</li>
-                                <li>Jira, Linear &amp; Slack connectors</li>
-                                <li>SSO &amp; active workspace sync</li>
-                                <li>Team velocity analytics</li>
-                            </ul>
-                            <button onclick="switchTab('login')" class="btn btn-outline">Contact Sales</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
 
         <!-- ⏳ HOW IT WORKS VIEW -->
@@ -2538,7 +2485,6 @@
                 <li><button onclick="switchTab('how-it-works')">How it works</button></li>
                 <li><button onclick="switchTab('use-cases')">Use cases</button></li>
                 <li><button onclick="switchTab('faq')">FAQ</button></li>
-                <li><button onclick="navigateToPricing()">Pricing</button></li>
                 <li><button onclick="showPolicyModal('terms')">Terms of Service</button></li>
             </ul>
 
@@ -2605,16 +2551,6 @@
 
             // Scroll window to top
             window.scrollTo(0, 0);
-        }
-
-        function navigateToPricing() {
-            switchTab('home');
-            setTimeout(() => {
-                const pricingSec = document.querySelector('.pricing-section');
-                if (pricingSec) {
-                    pricingSec.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
         }
 
         // Beautiful glassmorphic modal for Terms and Privacy Policy
