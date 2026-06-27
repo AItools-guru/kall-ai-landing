@@ -2538,6 +2538,8 @@
                 <li><button onclick="switchTab('how-it-works')">How it works</button></li>
                 <li><button onclick="switchTab('use-cases')">Use cases</button></li>
                 <li><button onclick="switchTab('faq')">FAQ</button></li>
+                <li><button onclick="navigateToPricing()">Pricing</button></li>
+                <li><button onclick="showPolicyModal('terms')">Terms of Service</button></li>
             </ul>
 
             <!-- Cloudflare Security Badge -->
@@ -2603,6 +2605,16 @@
 
             // Scroll window to top
             window.scrollTo(0, 0);
+        }
+
+        function navigateToPricing() {
+            switchTab('home');
+            setTimeout(() => {
+                const pricingSec = document.querySelector('.pricing-section');
+                if (pricingSec) {
+                    pricingSec.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
         }
 
         // Beautiful glassmorphic modal for Terms and Privacy Policy
