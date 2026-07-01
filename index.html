@@ -2146,7 +2146,7 @@
                                     <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Jira Sync &amp; Exports</strong> (One-Click Jira, CSV, PDF, MD)</td>
+                                    <td><strong>Jira/Linear Sync &amp; Exports</strong> (One-Click Jira, Linear, CSV, PDF, MD)</td>
                                     <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
                                     <td style="text-align: center;"><span class="comparison-cross">✗</span> (Text only)</td>
                                     <td style="text-align: center;"><span class="comparison-check">✓</span></td>
@@ -2213,7 +2213,7 @@
                         <div class="step-node">
                             <div class="step-icon-circle">🔑</div>
                             <h3>Set up: BYOK in 30 seconds</h3>
-                            <p>Open Advanced Settings, pick Google Gemini (audio + text) or Anthropic Claude (text), and paste your own API key. Keys are session-only — never stored. No key? Use the built-in demo transcript.</p>
+                            <p>Open Advanced Settings, pick Google Gemini (audio + text) or Anthropic Claude (text), and paste your own API key. Keys are securely stored in your Supabase profile. No key? Use the built-in demo transcript.</p>
                         </div>
 
                         <!-- Drop -->
@@ -2227,7 +2227,7 @@
                         <div class="step-node">
                             <div class="step-icon-circle">🚀</div>
                             <h3>Extract → 5 result views</h3>
-                            <p>One click returns a Pydantic-validated executive brief, an Agile action backlog, speaker talk-share analytics, an Ask-PM Copilot Q&A, and an optional one-click Jira ticket sync.</p>
+                            <p>One click returns a Pydantic-validated executive brief, an Agile action backlog, speaker talk-share analytics, an Ask-PM Copilot Q&amp;A, and an optional one-click Jira or Linear ticket sync.</p>
                         </div>
                     </div>
 
@@ -2237,7 +2237,7 @@
                         <ul class="checklist-ul">
                             <li>
                                 <span class="checklist-label">Pick engine + paste API key :</span>
-                                <span class="checklist-desc">Open the <strong>🛠️ Advanced Settings</strong> expander on the left. Choose Google Gemini (audio + text) or Anthropic Claude (text only) and paste your own API key. BYOK — keys are session-only.</span>
+                                <span class="checklist-desc">Open the <strong>🛠️ Advanced Settings</strong> expander on the left. Choose Google Gemini (audio + text) or Anthropic Claude (text only) and paste your own API key. BYOK — keys are securely managed via Supabase.</span>
                             </li>
                             <li>
                                 <span class="checklist-label">Enter your name :</span>
@@ -2261,11 +2261,11 @@
                             </li>
                             <li>
                                 <span class="checklist-label">Explore 5 views :</span>
-                                <span class="checklist-desc">Executive Dashboard, Agile Action Planner, Speaker Analytics, Ask PM Copilot, and Jira Sync tabs appear after first extraction.</span>
+                                <span class="checklist-desc">Executive Dashboard, Agile Action Planner, Speaker Analytics, Ask PM Copilot, and Issue Sync tabs appear after first extraction.</span>
                             </li>
                             <li>
                                 <span class="checklist-label">Export or sync :</span>
-                                <span class="checklist-desc">Click <strong>📑 Export PDF</strong> in the top-right header, or open the Jira Sync tab to push action items as Jira tickets in one click.</span>
+                                <span class="checklist-desc">Click <strong>📑 Export PDF</strong> in the top-right header, or open the Issue Sync tab to push action items as Jira or Linear tickets in one click.</span>
                             </li>
                         </ul>
 
@@ -2306,7 +2306,7 @@
                         <div class="glass-card use-case-card">
                             <div class="use-case-icon">📋</div>
                             <h3>Agile backlogs</h3>
-                            <p>Maintains team sprint alignment. Manage tasks, assign owners, complete checklists, and sync them directly to your Jira Cloud project or export reports.</p>
+                            <p>Maintains team sprint alignment. Manage tasks, assign owners, complete checklists, and sync them directly to your Jira Cloud or Linear project or export reports.</p>
                         </div>
                         
                         <div class="glass-card use-case-card">
@@ -2562,7 +2562,7 @@
                 content = "Welcome to Kall AI. By accessing or using our meeting intelligence platform and SaaS services, you agree to be bound by these Terms of Service. 1. You agree to use the service in compliance with local wiretapping and consent laws regarding recording. 2. We process transcripts temporarily in memory to generate summaries; we do not store raw audio files or training models on your proprietary prompt data. 3. All intellectual property remains owned by the respective user.";
             } else {
                 title = "Privacy Policy";
-                content = "Your privacy is our priority. 1. Data Processing: We temporarily capture, attribute, and transcribe audio inputs for the sole purpose of generating executive summaries. 2. Storage: Custom API keys are held strictly in temporary browser session memory and are never cached or written to our databases. 3. Third-party APIs: Data is processed through selected LLM Providers (Google Gemini / Anthropic Claude) in compliance with their API confidentiality terms (zero-training usage).";
+                content = "Your privacy is our priority. 1. Data Processing: We temporarily capture, attribute, and transcribe audio inputs for the sole purpose of generating executive summaries. 2. Storage: Custom API keys and meetings are securely persisted to your private Supabase profile using PostgreSQL row-level security. 3. Third-party APIs: Data is processed through selected LLM Providers (Google Gemini / Anthropic Claude) in compliance with their API confidentiality terms (zero-training usage).";
             }
             
             let modal = document.getElementById("policy-modal");
