@@ -1962,7 +1962,7 @@
                     </div>
 
                     <!-- Interactive High-Fidelity App Showcase -->
-                    <div class="showcase-container" style="margin-bottom: 60px;">
+                    <div class="showcase-container" id="live-demo" style="margin-bottom: 60px;">
                         <div class="mockup-glow"></div>
                         <div class="browser-mockup">
                             <div class="browser-header">
@@ -2379,6 +2379,10 @@
                             Interactive Kall AI workspace (Executive Dashboard, Checklists, Speaker Charts, Chat Bot)
                         </div>
                     </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <button onclick="goToDemo()" class="btn btn-outline">🎥 See it in action ↑</button>
+                    </div>
                 </div>
             </section>
         </div>
@@ -2672,6 +2676,15 @@
 
         // Activate the correct view on initial page load (URL routing)
         if (activeTab !== 'home') { switchTab(activeTab, true); }
+
+        // Jump from How it works back to the live demo showcase on the home view
+        function goToDemo() {
+            switchTab('home');
+            setTimeout(() => {
+                const demo = document.getElementById('live-demo');
+                if (demo) demo.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 0);
+        }
 
         // Beautiful glassmorphic modal for Terms and Privacy Policy
         function showPolicyModal(type) {
