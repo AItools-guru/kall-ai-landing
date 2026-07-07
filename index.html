@@ -3180,6 +3180,8 @@
                     tab.classList.remove('active');
                     slides[i].classList.remove('active');
                 }
+                const vid = slides[i] ? slides[i].querySelector('video') : null;
+                if (vid) { i === index ? vid.play().catch(() => {}) : vid.pause(); }
             });
         }
 
