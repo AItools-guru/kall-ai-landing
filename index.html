@@ -1133,16 +1133,19 @@
             list-style: none;
         }
 
-        .footer-links button {
+        .footer-links button,
+        .footer-links a {
             background: none;
             border: none;
             color: var(--text-muted);
             cursor: pointer;
             transition: var(--transition-smooth);
             font-size: 0.85rem;
+            text-decoration: none;
         }
 
-        .footer-links button:hover {
+        .footer-links button:hover,
+        .footer-links a:hover {
             color: var(--text-primary);
         }
 
@@ -2479,6 +2482,10 @@
                             </div>
                         </div>
                     </div>
+
+                    <div style="text-align: center; margin-top: 40px;">
+                        <p style="color: var(--text-secondary, #94a3b8);">Still stuck? Email <a href="mailto:hello@kall-ai.com" style="color: var(--accent-orange, #f97316); font-weight: 600;">hello@kall-ai.com</a></p>
+                    </div>
                 </div>
             </section>
         </div>
@@ -2592,6 +2599,7 @@
                 <li><button onclick="switchTab('use-cases')">Use cases</button></li>
                 <li><button onclick="switchTab('faq')">FAQ</button></li>
                 <li><button onclick="showPolicyModal('terms')">Terms of Service</button></li>
+                <li><a href="mailto:hello@kall-ai.com">Contact</a></li>
             </ul>
 
             <!-- Cloudflare Security Badge -->
