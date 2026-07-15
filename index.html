@@ -2734,19 +2734,6 @@
                 navToggle.classList.remove('active');
             }
 
-            // Trigger Cloudflare Turnstile rendering on tab switch to login (since it is hidden by default on load)
-            if (tabId === 'login') {
-                setTimeout(() => {
-                    if (window.turnstile) {
-                        try {
-                            window.turnstile.implicitRender();
-                        } catch (e) {
-                            console.error("Turnstile render error: ", e);
-                        }
-                    }
-                }, 150);
-            }
-
             // Scroll window to top
             window.scrollTo(0, 0);
         }
