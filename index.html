@@ -2103,6 +2103,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Feature 4 -->
+                    <div class="features-alt-row">
+                        <div class="features-alt-col">
+                            <span class="features-alt-badge" style="background:rgba(34,197,94,0.1); border-color:rgba(34,197,94,0.25); color:#4ade80;">Calendar &amp; Team Push</span>
+                            <h3>Know what's next. Share what happened.</h3>
+                            <p>Connect Google Calendar (read-only) to see upcoming meetings and jump straight to recording — Kall AI never joins or records anything automatically, you stay in control of consent. After extraction, push the operations brief straight to a Slack channel or publish it as a Confluence page, one click, no copy-pasting.</p>
+                            <ul class="checklist-ul" style="display: flex; flex-direction: column; gap: 8px;">
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">Read-only calendar:</span> See what's coming, you still start every recording manually.</div></li>
+                                <li style="grid-template-columns: auto 1fr;"><div><span class="checklist-label">One-click distribution:</span> Brief lands in Slack or Confluence without leaving the app.</div></li>
+                            </ul>
+                        </div>
+                        <div class="features-alt-col">
+                            <div class="feature-visual glass-card" style="padding: 24px; border-color: rgba(34,197,94,0.25);">
+                                <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border-color); padding-bottom:12px; margin-bottom:16px;">
+                                    <span style="font-weight:700; font-size:0.85rem; font-family:'Outfit';">📅 UPCOMING MEETINGS</span>
+                                    <span style="font-size:0.75rem; color:#4ade80; font-family:'Fira Code';">● connected</span>
+                                </div>
+                                <div style="display:flex; flex-direction:column; gap:10px; font-size:0.82rem;">
+                                    <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); border-radius:8px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
+                                        <span style="color:var(--text-primary);">Sprint Planning · 2:00 PM</span>
+                                        <span style="color:#4ade80; font-size:0.75rem;">🎥 Record</span>
+                                    </div>
+                                    <div style="background:rgba(255,255,255,0.02); border:1px solid var(--border-color); border-radius:8px; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
+                                        <span style="color:var(--text-primary);">Client Discovery · 4:30 PM</span>
+                                        <span style="color:#4ade80; font-size:0.75rem;">🎥 Record</span>
+                                    </div>
+                                    <div style="border-top:1px dashed var(--border-color); margin-top:4px; padding-top:12px; display:flex; gap:8px;">
+                                        <span style="background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.25); border-radius:6px; padding:6px 10px; font-size:0.78rem; color:#4ade80;">💬 Push to Slack</span>
+                                        <span style="background:rgba(74,222,128,0.1); border:1px solid rgba(74,222,128,0.25); border-radius:6px; padding:6px 10px; font-size:0.78rem; color:#4ade80;">📘 Push to Confluence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -2160,6 +2195,12 @@
                                     <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
                                     <td style="text-align: center;"><span class="comparison-cross">✗</span> (Text only)</td>
                                     <td style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Calendar View &amp; Slack/Confluence Push</strong> (Read-only calendar, one-click brief distribution)</td>
+                                    <td class="highlight" style="text-align: center;"><span class="comparison-check">✓</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
+                                    <td style="text-align: center;"><span class="comparison-cross">✗</span></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -2374,6 +2415,10 @@
                                 <span class="checklist-label">Export or sync :</span>
                                 <span class="checklist-desc">Click <strong>📑 Export PDF</strong> in the top-right header, or open the Issue Sync tab to push action items as Jira or Linear tickets in one click.</span>
                             </li>
+                            <li>
+                                <span class="checklist-label">Calendar &amp; team push (optional) :</span>
+                                <span class="checklist-desc">Expand <strong>📅 Connect Google Calendar</strong> to see upcoming meetings and jump straight to recording, or <strong>📤 Connect Slack &amp; Confluence</strong> to push the operations brief to a channel or page after extraction.</span>
+                            </li>
                         </ul>
 
                         <div class="flow-diagram-container">
@@ -2481,6 +2526,28 @@
                             </button>
                             <div class="faq-answer">
                                 <p>We support text uploads of raw conversational dialogue, as well as subtitle and time-coded transcription formats including SRT and VTT files.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 5 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                Does Kall AI auto-join my meetings to record them?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>No, and it never will. The optional Google Calendar connector is read-only — it shows your upcoming meetings and lets you jump straight to the recording tab, but you always start every recording yourself and confirm consent first. No bot joins your call automatically.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 6 -->
+                        <div class="faq-item">
+                            <button class="faq-question" onclick="toggleFaq(this)">
+                                Can I send the meeting brief to Slack or Confluence automatically?
+                                <span class="faq-icon">✚</span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes. Connect Slack or Confluence from the left panel (OAuth, same pattern as Jira and Linear), and a push button appears in the Executive Dashboard tab after extraction — one click posts the brief to a channel or publishes it as a page.</p>
                             </div>
                         </div>
                     </div>
